@@ -1,0 +1,2 @@
+This folder contains a practice database example for the app
+
