@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">ShoppingList</string>
 
+    <string name="Home">Home</string>
     <string name="addFood">Add Food</string>
     <string name="createList">Create List</string>
+    <string name="welcome">Welcome to your Shopping List App!</string>
+    <string name="lookUpList">MealFit List</string>
 
     <string-array name="nav_drawer_labels">
+        <item>@string/Home</item>
         <item>@string/addFood</item>
         <item>@string/createList</item>
     </string-array>
