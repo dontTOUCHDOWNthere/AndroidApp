@@ -3,7 +3,7 @@
     <color name="colorPrimary">#148111</color>
     <color name="colorPrimaryDark">#61d45d</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="windowBackground">#FFFFFF</color>
+    <color name="windowBackground">#000000</color>
     <color name="navigationBarColor">#000000</color>
     <color name="colorAccent">#FF80AB</color>
 </resources>

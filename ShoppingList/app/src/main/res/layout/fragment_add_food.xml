@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <!-- neat trick to push the stuff below all the way to bottom -->
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" />
+    <!-- divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_weight="1">
+            <TableRow>
+                <EditText android:id="@+id/add_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:layout_weight="1"
+                    android:hint="@string/addFood" />
+            </TableRow>
+            <TableRow>
+                <EditText android:id="@+id/add_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dip"
+                    android:layout_weight="1"
+                    android:hint="@string/typePrice" />
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center">
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/addFood" />
+        <Button
+            android:id="@+id/seeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="@string/viewFood" />
+        </TableLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

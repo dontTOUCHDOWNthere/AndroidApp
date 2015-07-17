@@ -1,5 +1,7 @@
 package activity;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.rh035578.shoppinglist.R;
 
@@ -70,6 +74,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 fragment = new HomeFragment();
                 title = getString(R.string.Home);
                 break;
+            case 1:
+                fragment = new AddFoodFragment();
+                title = getString(R.string.addFood);
             default:
                 break;
         }
