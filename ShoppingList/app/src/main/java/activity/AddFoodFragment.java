@@ -127,7 +127,7 @@ public class AddFoodFragment extends Fragment {
         AlertDialog box = new AlertDialog.Builder(getActivity()).create();
         box.setTitle("Food doesn't exist");
         box.setMessage("Enter price for food");
-        box.setButton("OK", new DialogInterface.OnClickListener() {
+        box.setButton("Okay", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Toast.makeText(getActivity(), "Clicked OK", Toast.LENGTH_SHORT).show();
