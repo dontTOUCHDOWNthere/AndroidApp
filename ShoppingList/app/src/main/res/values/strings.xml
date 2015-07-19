@@ -4,7 +4,7 @@
     <string name="Home">Home</string>
     <string name="addFood">Add Food</string>
     <string name="viewFood">View Food</string>
-    <string name="createList">Create List</string>
+    <string name="createdList">Created List</string>
     <string name="welcome">Welcome to your Shopping List App!</string>
     <string name="lookUpList">MealFit List</string>
     <string name="typeFood">Type in food...</string>
@@ -13,7 +13,7 @@
     <string-array name="nav_drawer_labels">
         <item>@string/Home</item>
         <item>@string/addFood</item>
-        <item>@string/createList</item>
+        <item>@string/createdList</item>
     </string-array>
 
     <string name="drawer_open">Open</string>

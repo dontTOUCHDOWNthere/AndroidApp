@@ -1,19 +1,28 @@
 package activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 
 import com.example.rh035578.shoppinglist.R;
+
+import java.sql.SQLException;
 
 public class AddFoodFragment extends Fragment {
 
@@ -42,6 +51,11 @@ public class AddFoodFragment extends Fragment {
                 addFood(rootView);
             }
         });
+
+        Spinner dropdown = (Spinner) rootView.findViewById(R.id.spinner1);
+        String[] items = new String[]{"1", "2", "3"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
+        dropdown.setAdapter(adapter);
 
         //see what foods the user has saved in db
         Button seeButton = (Button) rootView.findViewById(R.id.seeButton);
@@ -73,18 +87,53 @@ public class AddFoodFragment extends Fragment {
         dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
 
+        boolean exists;
+
         EditText editFood = (EditText) v.findViewById(R.id.add_food);
-        EditText editPrice = (EditText) v.findViewById(R.id.add_price);
+        //EditText editPrice = (EditText) v.findViewById(R.id.type_price);
 
         String food = editFood.getText().toString();
-        String price = editPrice.getText().toString();
+        //String price = editPrice.getText().toString();
         editFood.setText("");
-        editPrice.setText("");
+        //editPrice.setText("");
 
         ContentValues values = new ContentValues();
         values.put(dbConstants.myConstants.FOOD, food);
-        values.put(dbConstants.myConstants.PRICE, price);
+        //values.put(dbConstants.myConstants.PRICE, price);
 
-        db.insert(dbConstants.myConstants.TABLE, null, values);
+        exists = foodExists(food, db);
+
+        if(!exists) {
+            alertNoFood();
+            //db.insert(dbConstants.myConstants.TABLE, null, values);
+        }
+    }
+
+    private boolean foodExists(String food, SQLiteDatabase db) throws SQLiteException {
+        String[] selection = new String[]{food};
+        String selectStatement = "SELECT " + dbConstants.myConstants.FOOD +  " from " + dbConstants.myConstants.TABLE + " WHERE " + dbConstants.myConstants.FOOD + "=?";
+        Cursor cursor = db.rawQuery(selectStatement, selection);
+
+        // check if the food exists
+        if(cursor != null) {
+            if (cursor.getCount() != 0)
+                return true;
+        }
+
+        return false;
+    }
+
+    private void alertNoFood() {
+        AlertDialog box = new AlertDialog.Builder(getActivity()).create();
+        box.setTitle("Food doesn't exist");
+        box.setMessage("Enter price for food");
+        box.setButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getActivity(), "Clicked OK", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        box.show();
     }
 }
