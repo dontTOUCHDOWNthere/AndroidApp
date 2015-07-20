@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,19 +21,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-
 import com.example.rh035578.shoppinglist.R;
 
-import java.sql.SQLException;
 
 public class AddFoodFragment extends Fragment {
 
-    // save so I can pass into clickListener for adding
+    //save so I can pass into clickListener for adding
     private View rootView;
+    private final String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+    private final String DELETE = "delete from "+ dbConstants.myConstants.TABLE;
 
     public AddFoodFragment() {
-        // Required empty public constructor
+        //Required empty public constructor
     }
 
     @Override
@@ -54,7 +55,6 @@ public class AddFoodFragment extends Fragment {
         });
 
         Spinner dropdown = (Spinner) rootView.findViewById(R.id.spinner1);
-        String[] items = new String[]{"1", "2", "3"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
         dropdown.setAdapter(adapter);
 
@@ -68,7 +68,16 @@ public class AddFoodFragment extends Fragment {
             }
         });
 
-        // Inflate the layout for this fragment
+        //reset database
+        Button resetButton = (Button) rootView.findViewById(R.id.resetButton);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetDB();
+            }
+        });
+
+        //Inflate the layout for this fragment
         return rootView;
     }
 
@@ -88,26 +97,34 @@ public class AddFoodFragment extends Fragment {
         dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
 
+        //does the inputted food exist already
         boolean exists;
 
+        //get the text of the inputted food
         EditText editFood = (EditText) v.findViewById(R.id.add_food);
-        //EditText editPrice = (EditText) v.findViewById(R.id.type_price);
-
         String food = editFood.getText().toString();
-        //String price = editPrice.getText().toString();
-        editFood.setText("");
-        //editPrice.setText("");
 
+        //check to see if user entered a food name
+        if(food.isEmpty()) {
+            alertEmptyFood();
+            return;
+        }
+
+        //get value ready for insert
         ContentValues values = new ContentValues();
         values.put(dbConstants.myConstants.FOOD, food);
-        //values.put(dbConstants.myConstants.PRICE, price);
 
         exists = foodExists(food, db);
 
         if(!exists) {
             alertNoFood(values, db);
-            //db.insert(dbConstants.myConstants.TABLE, null, values);
         }
+
+        else {
+            //TODO: add food to grocery list
+        }
+
+        editFood.setText("");
     }
 
     private boolean foodExists(String food, SQLiteDatabase db) throws SQLiteException {
@@ -115,7 +132,7 @@ public class AddFoodFragment extends Fragment {
         String selectStatement = "SELECT " + dbConstants.myConstants.FOOD +  " from " + dbConstants.myConstants.TABLE + " WHERE " + dbConstants.myConstants.FOOD + "=?";
         Cursor cursor = db.rawQuery(selectStatement, selection);
 
-        // check if the food exists
+        //check if the food exists
         if(cursor != null) {
             if (cursor.getCount() != 0)
                 return true;
@@ -125,24 +142,55 @@ public class AddFoodFragment extends Fragment {
     }
 
     private void alertNoFood(final ContentValues values, final SQLiteDatabase db) {
+
         AlertDialog box = new AlertDialog.Builder(getActivity()).create();
         box.setTitle("Food doesn't exist");
         box.setMessage("Enter price for food");
 
+        //add EditText field to alert dialog box for user to input price
         final EditText getPrice = new EditText(getActivity());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        getPrice.setId(R.id.getPrice);
+        getPrice.setGravity(Gravity.CENTER);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         getPrice.setLayoutParams(params);
         box.setView(getPrice);
 
+        PriceWatcher watcher = new PriceWatcher();
+        watcher.setEditText(getPrice);
+        getPrice.addTextChangedListener(watcher);
+
+        //accept price and add new food to database
         box.setButton("Okay", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                values.put(dbConstants.myConstants.PRICE, getPrice.getText().toString());
+                values.put(dbConstants.myConstants.PRICE, getPrice.getText().toString().replaceAll("\\$", ""));
                 db.insert(dbConstants.myConstants.TABLE, null, values);
+
+                //TODO: add to grocery list
                 Toast.makeText(getActivity(), "Food Added", Toast.LENGTH_SHORT).show();
             }
         });
 
         box.show();
     }
+
+    //empty food field check
+    private void alertEmptyFood() {
+        AlertDialog box = new AlertDialog.Builder(getActivity()).create();
+        box.setTitle("No Food Input Detected");
+        box.setMessage("You must enter the name of the food");
+
+        box.show();
+    }
+
+    private void resetDB() {
+        dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.execSQL(DELETE);
+    }
+    private boolean validatePriceFormat(String price) {
+        //TODO: check to make sure price is in the form x.xx
+        return true;
+    }
+
 }
