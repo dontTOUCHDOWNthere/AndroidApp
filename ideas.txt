@@ -1,8 +1,0 @@
-//=============================================
-// addFood fragment adding food to database
-//=============================================
-
-1) create area for adding for to the grocery list
-   a. user types in a search box
-   b. if food is found in database, adds it to the list and increments total price respectively
-   c. if not found, message telling user to add it to database
