@@ -43,13 +43,24 @@
                     android:layout_weight="1"
                     android:hint="@string/typePrice" />
             </TableRow>-->
+
             <TableRow>
+                <LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/quantity"
+                        android:textStyle="bold"
+                        android:textSize="9pt"
+                        android:textColor="@color/textSecondaryColor"
+                        android:paddingRight="25dp" />
                 <Spinner
                     android:id="@+id/spinner1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:textSize="8pt"/>
+                    android:textSize="8pt"
+                    android:background="@android:drawable/btn_dropdown"/>
+                </LinearLayout>
             </TableRow>
         </TableLayout>
 
@@ -57,6 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             android:layout_gravity="top|center">
+
+
 
             <Button
                 android:id="@+id/addButton"
@@ -68,7 +81,8 @@
                 android:id="@+id/seeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="@string/viewFood" />
+                android:text="@string/viewFood"
+                android:layout_marginTop="10dp"/>
         </TableLayout>
 
     </LinearLayout>

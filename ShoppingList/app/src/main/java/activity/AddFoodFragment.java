@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -104,7 +105,7 @@ public class AddFoodFragment extends Fragment {
         exists = foodExists(food, db);
 
         if(!exists) {
-            alertNoFood();
+            alertNoFood(values, db);
             //db.insert(dbConstants.myConstants.TABLE, null, values);
         }
     }
@@ -123,14 +124,22 @@ public class AddFoodFragment extends Fragment {
         return false;
     }
 
-    private void alertNoFood() {
+    private void alertNoFood(final ContentValues values, final SQLiteDatabase db) {
         AlertDialog box = new AlertDialog.Builder(getActivity()).create();
         box.setTitle("Food doesn't exist");
         box.setMessage("Enter price for food");
+
+        final EditText getPrice = new EditText(getActivity());
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        getPrice.setLayoutParams(params);
+        box.setView(getPrice);
+
         box.setButton("Okay", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getActivity(), "Clicked OK", Toast.LENGTH_SHORT).show();
+                values.put(dbConstants.myConstants.PRICE, getPrice.getText().toString());
+                db.insert(dbConstants.myConstants.TABLE, null, values);
+                Toast.makeText(getActivity(), "Food Added", Toast.LENGTH_SHORT).show();
             }
         });
 
