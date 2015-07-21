@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.rh035578.shoppinglist.R;
 
@@ -33,6 +34,8 @@ public class AddFoodFragment extends Fragment {
     private final String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
     private final String RESET_GL = "delete from "+ dbConstants.myConstants.GROCERY_LIST;
     private final String RESET_MAIN = "delete from "+ dbConstants.myConstants.TABLE;
+    private final String GET_TOTAL = "select sum(" + dbConstants.myConstants.PRICE + ") from " + dbConstants.myConstants.GROCERY_LIST;
+    private DecimalFormat twoDecimals = new DecimalFormat("#.00");
 
     public AddFoodFragment() {
         //Required empty public constructor
@@ -135,11 +138,6 @@ public class AddFoodFragment extends Fragment {
             alertNoFood(values, db, quantity, food);
         }
 
-        else {
-            //TODO: add food to grocery list
-            //addToGroceryList(food, quantity, db);
-        }
-
         editFood.setText("");
     }
 
@@ -192,6 +190,7 @@ public class AddFoodFragment extends Fragment {
                 db.insert(dbConstants.myConstants.GROCERY_LIST, null, glValues);
 
                 Toast.makeText(getActivity(), "Food Added", Toast.LENGTH_SHORT).show();
+                getTotal(db);
             }
         });
 
@@ -211,6 +210,7 @@ public class AddFoodFragment extends Fragment {
         dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL(RESET_GL);
+        getTotal(db);
     }
 
     private void resetMain() {
@@ -220,7 +220,6 @@ public class AddFoodFragment extends Fragment {
     }
 
     private String dividePriceByQuantity(EditText price, String quantity) {
-        DecimalFormat twoDecimals = new DecimalFormat("0.##");
         Float floatPrice = Float.parseFloat(price.getText().toString().replaceAll("\\$", ""));
         Float floatQuantity = Float.parseFloat(quantity);
 
@@ -235,9 +234,18 @@ public class AddFoodFragment extends Fragment {
         }
 
         Float floatPrice = Float.parseFloat(price) * Float.parseFloat(quantity);
-        String glPrice = floatPrice.toString();
+        String glPrice = twoDecimals.format(floatPrice).toString();
 
         values.put(dbConstants.myConstants.PRICE, glPrice);
         db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
+        getTotal(db);
+    }
+
+    private void getTotal(SQLiteDatabase db) {
+        Cursor total = db.rawQuery(GET_TOTAL, null);
+        total.moveToFirst();
+        String totalCost = "$" + twoDecimals.format(total.getFloat(0));
+        TextView textView = (TextView) rootView.findViewById(R.id.totalCost);
+        textView.setText(totalCost);
     }
 }

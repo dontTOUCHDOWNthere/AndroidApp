@@ -258,6 +258,7 @@
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="total">Total:</string>
     <string name="typeFood">Type in food...</string>
     <string name="typePrice">Type in price...</string>
     <string name="viewFood">View Food</string>
