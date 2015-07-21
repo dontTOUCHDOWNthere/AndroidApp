@@ -188,9 +188,4 @@ public class AddFoodFragment extends Fragment {
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL(DELETE);
     }
-    private boolean validatePriceFormat(String price) {
-        //TODO: check to make sure price is in the form x.xx
-        return true;
-    }
-
 }
