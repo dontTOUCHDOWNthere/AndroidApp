@@ -251,7 +251,8 @@
     <string name="drawer_open">Open</string>
     <string name="lookUpList">MealFit List</string>
     <string name="quantity">Quantity:</string>
-    <string name="resetDB">Reset DB</string>
+    <string name="resetDB">Reset List</string>
+    <string name="resetMainDB">Reset Main DB</string>
     <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>

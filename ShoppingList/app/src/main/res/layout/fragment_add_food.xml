@@ -79,6 +79,14 @@
                 android:layout_height="50dp"
                 android:text="@string/resetDB"
                 android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/resetMainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/resetMainDB"
+                android:layout_marginTop="10dp"/>
+
         </TableLayout>
 
     </LinearLayout>

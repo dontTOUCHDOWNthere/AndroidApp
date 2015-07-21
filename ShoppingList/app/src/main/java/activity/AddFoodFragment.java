@@ -31,7 +31,8 @@ public class AddFoodFragment extends Fragment {
     //save so I can pass into clickListener for adding
     private View rootView;
     private final String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
-    private final String DELETE = "delete from "+ dbConstants.myConstants.TABLE;
+    private final String RESET_GL = "delete from "+ dbConstants.myConstants.GROCERY_LIST;
+    private final String RESET_MAIN = "delete from "+ dbConstants.myConstants.TABLE;
 
     public AddFoodFragment() {
         //Required empty public constructor
@@ -75,7 +76,15 @@ public class AddFoodFragment extends Fragment {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resetDB();
+                resetList();
+            }
+        });
+
+        Button resetMainButton = (Button) rootView.findViewById(R.id.resetMainButton);
+        resetMainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetMain();
             }
         });
 
@@ -120,34 +129,39 @@ public class AddFoodFragment extends Fragment {
         ContentValues values = new ContentValues();
         values.put(dbConstants.myConstants.FOOD, food);
 
-        exists = foodExists(food, db);
+        exists = foodExists(food, db, quantity, values);
 
         if(!exists) {
-            alertNoFood(values, db, quantity);
+            alertNoFood(values, db, quantity, food);
         }
 
         else {
             //TODO: add food to grocery list
+            //addToGroceryList(food, quantity, db);
         }
 
         editFood.setText("");
     }
 
-    private boolean foodExists(String food, SQLiteDatabase db) throws SQLiteException {
+    private boolean foodExists(String food, SQLiteDatabase db, String quantity, ContentValues values) throws SQLiteException {
         String[] selection = new String[]{food};
-        String selectStatement = "SELECT " + dbConstants.myConstants.FOOD +  " from " + dbConstants.myConstants.TABLE + " WHERE " + dbConstants.myConstants.FOOD + "=?";
+        String selectStatement = "SELECT " + dbConstants.myConstants.FOOD + ", " + dbConstants.myConstants.PRICE +  " from " + dbConstants.myConstants.TABLE + " WHERE " + dbConstants.myConstants.FOOD + "=?";
         Cursor cursor = db.rawQuery(selectStatement, selection);
 
         //check if the food exists
         if(cursor != null) {
-            if (cursor.getCount() != 0)
+            if (cursor.getCount() != 0) {
+                addToGroceryList(quantity, db, cursor, values);
                 return true;
+            }
         }
 
         return false;
     }
 
-    private void alertNoFood(final ContentValues values, final SQLiteDatabase db, final String quantity) {
+    private void alertNoFood(final ContentValues values, final SQLiteDatabase db, final String quantity, String food) {
+
+        final ContentValues glValues = new ContentValues();
 
         AlertDialog box = new AlertDialog.Builder(getActivity()).create();
         box.setTitle("Food doesn't exist");
@@ -165,14 +179,18 @@ public class AddFoodFragment extends Fragment {
         watcher.setEditText(getPrice);
         getPrice.addTextChangedListener(watcher);
 
+        glValues.put(dbConstants.myConstants.FOOD, food);
+
         //accept price and add new food to database
         box.setButton("Okay", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                glValues.put(dbConstants.myConstants.PRICE, getPrice.getText().toString().replaceAll("\\$", ""));
                 values.put(dbConstants.myConstants.PRICE, dividePriceByQuantity(getPrice, quantity));
-                db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
 
-                //TODO: add to grocery list
+                db.insert(dbConstants.myConstants.TABLE, null, values);
+                db.insert(dbConstants.myConstants.GROCERY_LIST, null, glValues);
+
                 Toast.makeText(getActivity(), "Food Added", Toast.LENGTH_SHORT).show();
             }
         });
@@ -189,10 +207,16 @@ public class AddFoodFragment extends Fragment {
         box.show();
     }
 
-    private void resetDB() {
+    private void resetList() {
         dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
-        db.execSQL(DELETE);
+        db.execSQL(RESET_GL);
+    }
+
+    private void resetMain() {
+        dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.execSQL(RESET_MAIN);
     }
 
     private String dividePriceByQuantity(EditText price, String quantity) {
@@ -202,5 +226,18 @@ public class AddFoodFragment extends Fragment {
 
         return twoDecimals.format(floatPrice / floatQuantity);
 
+    }
+
+    private void addToGroceryList(String quantity, SQLiteDatabase db, Cursor cursor, ContentValues values) {
+        String price = "";
+        if(cursor.moveToFirst()) {
+            price = cursor.getString(cursor.getColumnIndex(dbConstants.myConstants.PRICE));
+        }
+
+        Float floatPrice = Float.parseFloat(price) * Float.parseFloat(quantity);
+        String glPrice = floatPrice.toString();
+
+        values.put(dbConstants.myConstants.PRICE, glPrice);
+        db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
     }
 }
