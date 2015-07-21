@@ -35,15 +35,6 @@
                     android:layout_weight="1"
                     android:hint="@string/typeFood" />
             </TableRow>
-            <!--<TableRow>
-                <EditText android:id="@+id/add_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dip"
-                    android:layout_weight="1"
-                    android:hint="@string/typePrice" />
-            </TableRow>-->
-
             <TableRow>
                 <LinearLayout>
                     <TextView
@@ -68,8 +59,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             android:layout_gravity="top|center">
-
-
 
             <Button
                 android:id="@+id/addButton"
