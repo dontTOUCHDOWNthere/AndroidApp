@@ -1607,6 +1607,7 @@ containing a value of this type.
         public static final int parentPanel=0x7f0d002e;
         public static final int progress_circular=0x7f0d0006;
         public static final int progress_horizontal=0x7f0d0007;
+        public static final int quantitySpinner=0x7f0d0056;
         public static final int radio=0x7f0d003b;
         public static final int resetButton=0x7f0d0059;
         public static final int screen=0x7f0d0020;
@@ -1627,7 +1628,6 @@ containing a value of this type.
         public static final int showCustom=0x7f0d0010;
         public static final int showHome=0x7f0d0011;
         public static final int showTitle=0x7f0d0012;
-        public static final int spinner1=0x7f0d0056;
         public static final int split_action_bar=0x7f0d0008;
         public static final int src_atop=0x7f0d0021;
         public static final int src_in=0x7f0d0022;

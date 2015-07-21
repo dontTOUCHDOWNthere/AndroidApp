@@ -488,6 +488,7 @@ int id normal 0x7f0d000b
 int id parentPanel 0x7f0d002e
 int id progress_circular 0x7f0d0006
 int id progress_horizontal 0x7f0d0007
+int id quantitySpinner 0x7f0d0056
 int id radio 0x7f0d003b
 int id resetButton 0x7f0d0059
 int id screen 0x7f0d0020
@@ -508,7 +509,6 @@ int id shortcut 0x7f0d003a
 int id showCustom 0x7f0d0010
 int id showHome 0x7f0d0011
 int id showTitle 0x7f0d0012
-int id spinner1 0x7f0d0056
 int id split_action_bar 0x7f0d0008
 int id src_atop 0x7f0d0021
 int id src_in 0x7f0d0022

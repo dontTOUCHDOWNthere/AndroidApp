@@ -23,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.rh035578.shoppinglist.R;
 
+import java.text.DecimalFormat;
+
 
 public class AddFoodFragment extends Fragment {
 
@@ -54,7 +56,7 @@ public class AddFoodFragment extends Fragment {
             }
         });
 
-        Spinner dropdown = (Spinner) rootView.findViewById(R.id.spinner1);
+        Spinner dropdown = (Spinner) rootView.findViewById(R.id.quantitySpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
         dropdown.setAdapter(adapter);
 
@@ -104,6 +106,10 @@ public class AddFoodFragment extends Fragment {
         EditText editFood = (EditText) v.findViewById(R.id.add_food);
         String food = editFood.getText().toString();
 
+        //get quantity value from spinner
+        Spinner quantitySpinner = (Spinner) rootView.findViewById(R.id.quantitySpinner);
+        String quantity = quantitySpinner.getSelectedItem().toString();
+
         //check to see if user entered a food name
         if(food.isEmpty()) {
             alertEmptyFood();
@@ -117,7 +123,7 @@ public class AddFoodFragment extends Fragment {
         exists = foodExists(food, db);
 
         if(!exists) {
-            alertNoFood(values, db);
+            alertNoFood(values, db, quantity);
         }
 
         else {
@@ -141,7 +147,7 @@ public class AddFoodFragment extends Fragment {
         return false;
     }
 
-    private void alertNoFood(final ContentValues values, final SQLiteDatabase db) {
+    private void alertNoFood(final ContentValues values, final SQLiteDatabase db, final String quantity) {
 
         AlertDialog box = new AlertDialog.Builder(getActivity()).create();
         box.setTitle("Food doesn't exist");
@@ -163,7 +169,7 @@ public class AddFoodFragment extends Fragment {
         box.setButton("Okay", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                values.put(dbConstants.myConstants.PRICE, getPrice.getText().toString().replaceAll("\\$", ""));
+                values.put(dbConstants.myConstants.PRICE, dividePriceByQuantity(getPrice, quantity));
                 db.insert(dbConstants.myConstants.TABLE, null, values);
 
                 //TODO: add to grocery list
@@ -187,5 +193,14 @@ public class AddFoodFragment extends Fragment {
         dbHelper helper = new dbHelper(getActivity(), dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
         SQLiteDatabase db = helper.getWritableDatabase();
         db.execSQL(DELETE);
+    }
+
+    private String dividePriceByQuantity(EditText price, String quantity) {
+        DecimalFormat twoDecimals = new DecimalFormat("0.##");
+        Float floatPrice = Float.parseFloat(price.getText().toString().replaceAll("\\$", ""));
+        Float floatQuantity = Float.parseFloat(quantity);
+
+        return twoDecimals.format(floatPrice / floatQuantity);
+
     }
 }
