@@ -17,5 +17,7 @@ Making an app that will let you add item food names and prices. It will save tha
         * :white_check_mark: if not new food
            * :white_check_mark: get price from main table, multiply by quantity, and add to grocery list
            
-    * :x: calculate total for grocery list
+    * :bulb: calculate total for grocery list
+        * :white_check_mark: insertion
+        * :bulb: deletion of an individual item
 
