@@ -52,7 +52,7 @@ public class MyListActivity extends ListActivity {
         String having = null;
         String order = null;
 
-        Cursor cursor = db.query(dbConstants.myConstants.TABLE, projection, selection, selectionArgs, groupBy, having, order);
+        Cursor cursor = db.query(dbConstants.myConstants.GROCERY_LIST, projection, selection, selectionArgs, groupBy, having, order);
         return cursor;
 
     }

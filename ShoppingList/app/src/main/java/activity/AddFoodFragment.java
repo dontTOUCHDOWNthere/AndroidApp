@@ -170,7 +170,7 @@ public class AddFoodFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 values.put(dbConstants.myConstants.PRICE, dividePriceByQuantity(getPrice, quantity));
-                db.insert(dbConstants.myConstants.TABLE, null, values);
+                db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
 
                 //TODO: add to grocery list
                 Toast.makeText(getActivity(), "Food Added", Toast.LENGTH_SHORT).show();

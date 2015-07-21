@@ -11,7 +11,8 @@ public class dbConstants {
     public static abstract class myConstants {
         public static final String NAME = "practiceDB";
         public static final String TABLE = "practiceTable1";
-        public static final int VERSION = 1;
+        public static final String GROCERY_LIST = "groceryList";
+        public static final int VERSION = 2;
         public static final String ID = "_id";
         public static final String FOOD = "food";
         public static final String PRICE = "price";

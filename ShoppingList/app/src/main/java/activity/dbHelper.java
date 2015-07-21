@@ -16,6 +16,13 @@ public class dbHelper extends SQLiteOpenHelper {
             dbConstants.myConstants.FOOD + " text not null, " +
             dbConstants.myConstants.PRICE + " text not null);";
 
+    private static final String CREATE_LIST = "create table " +
+            dbConstants.myConstants.GROCERY_LIST + " (" +
+            dbConstants.myConstants.ID +
+            " integer primary key autoincrement, " +
+            dbConstants.myConstants.FOOD + " text not null, " +
+            dbConstants.myConstants.PRICE + " text not null);";
+
     public dbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
@@ -23,11 +30,13 @@ public class dbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE);
+        db.execSQL(CREATE_LIST);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + dbConstants.myConstants.TABLE);
+        db.execSQL("DROP TABLE IF EXISTS " + dbConstants.myConstants.GROCERY_LIST);
         onCreate(db);
     }
 }
