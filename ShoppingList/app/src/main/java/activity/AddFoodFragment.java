@@ -15,22 +15,26 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.rh035578.shoppinglist.R;
 
 import java.text.DecimalFormat;
+import java.util.List;
 
 
 public class AddFoodFragment extends Fragment {
 
     //save so I can pass into clickListener for adding
-    private View rootView;
+    protected static View rootView;
+    private final SwipeDeletion swipeDelete = new SwipeDeletion();
     private final String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
     private final String RESET_GL = "delete from "+ dbConstants.myConstants.GROCERY_LIST;
     private final String RESET_MAIN = "delete from "+ dbConstants.myConstants.TABLE;

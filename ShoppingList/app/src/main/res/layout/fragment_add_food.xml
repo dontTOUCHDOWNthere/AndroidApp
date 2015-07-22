@@ -98,6 +98,7 @@
         android:layout_weight="1" />
 
     <LinearLayout
+        android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
@@ -115,5 +116,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+
+    <!--<ListView
+        android:id="@+id/dbList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/addField"
+        android:layout_above="@+id/cost"
+        />-->
 
 </RelativeLayout>
