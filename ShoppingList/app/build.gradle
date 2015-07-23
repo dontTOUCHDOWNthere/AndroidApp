@@ -16,6 +16,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug {
+            debuggable true
+        }
     }
 }
 
@@ -24,4 +28,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'com.wdullaer:swipeactionadapter:1.4.4'
+    compile 'com.baoyz.swipemenulistview:library:1.2.1'
 }

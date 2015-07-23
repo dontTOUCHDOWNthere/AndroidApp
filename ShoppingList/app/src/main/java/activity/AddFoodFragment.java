@@ -34,12 +34,11 @@ public class AddFoodFragment extends Fragment {
 
     //save so I can pass into clickListener for adding
     protected static View rootView;
-    private final SwipeDeletion swipeDelete = new SwipeDeletion();
     private final String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
     private final String RESET_GL = "delete from "+ dbConstants.myConstants.GROCERY_LIST;
     private final String RESET_MAIN = "delete from "+ dbConstants.myConstants.TABLE;
-    private final String GET_TOTAL = "select sum(" + dbConstants.myConstants.PRICE + ") from " + dbConstants.myConstants.GROCERY_LIST;
-    private DecimalFormat twoDecimals = new DecimalFormat("#.00");
+    private static final String GET_TOTAL = "select sum(" + dbConstants.myConstants.PRICE + ") from " + dbConstants.myConstants.GROCERY_LIST;
+    private static DecimalFormat twoDecimals = new DecimalFormat("#.00");
 
     public AddFoodFragment() {
         //Required empty public constructor
@@ -173,6 +172,7 @@ public class AddFoodFragment extends Fragment {
         final EditText getPrice = new EditText(getActivity());
         getPrice.setId(R.id.getPrice);
         getPrice.setGravity(Gravity.CENTER);
+        getPrice.setInputType(InputType.TYPE_CLASS_NUMBER);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         getPrice.setLayoutParams(params);
         box.setView(getPrice);
@@ -245,7 +245,7 @@ public class AddFoodFragment extends Fragment {
         getTotal(db);
     }
 
-    private void getTotal(SQLiteDatabase db) {
+    protected static void getTotal(SQLiteDatabase db) {
         Cursor total = db.rawQuery(GET_TOTAL, null);
         total.moveToFirst();
         String totalCost = "$" + twoDecimals.format(total.getFloat(0));

@@ -6,6 +6,7 @@
     <color name="textSecondaryColor">#000000</color>
     <color name="windowBackground">#000000</color>
     <color name="navigationBarColor">#000000</color>
-    <color name="colorAccent">#FF80AB</color>
+    <color name="colorAccent">#000000</color>
     <color name="spinnerColor">#d0d0d0</color>
+    <color name="delete">#ee0808</color>
 </resources>

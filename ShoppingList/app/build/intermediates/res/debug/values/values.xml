@@ -40,9 +40,10 @@
     <color name="button_material_light">#ffd6d7d7</color>
     <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/src/main/res/values/colors.xml -->
     <eat-comment/>
-    <color name="colorAccent">#FF80AB</color>
+    <color name="colorAccent">#000000</color>
     <color name="colorPrimary">#148111</color>
     <color name="colorPrimaryDark">#61d45d</color>
+    <color name="delete">#ee0808</color>
     <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>

@@ -49,5 +49,4 @@
         android:layout_toRightOf="@+id/foodPriceTitle"
         android:text="TextView" />
 
-
 </RelativeLayout>
