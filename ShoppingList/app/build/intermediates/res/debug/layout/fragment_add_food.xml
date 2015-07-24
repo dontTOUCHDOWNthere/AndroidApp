@@ -6,12 +6,9 @@
     android:padding="10dip" >
 
 
-    <!-- neat trick to push the stuff below all the way to bottom
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1" />
-     divider -->
+    <!-- "SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length"
+         error shows when you input with the SWIFT keyboard instead
+         of normal typing -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dip" />
@@ -116,14 +113,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
-    <!--<ListView
-        android:id="@+id/dbList"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/addField"
-        android:layout_above="@+id/cost"
-        />-->
 
 </RelativeLayout>
 <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/src/main/res/layout/fragment_add_food.xml -->
