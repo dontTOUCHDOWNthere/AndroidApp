@@ -19,10 +19,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.example.rh035578.shoppinglist.R;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 
 
 public class MainActivity extends ActionBarActivity implements FragmentDrawer.FragmentDrawerListener {
@@ -31,20 +39,29 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private FragmentDrawer drawerFragment;
     private int RESULT_LOAD_IMG;
     private static final int MAX_IMAGE_DIMENSION = 500;
+    private Uri selectedImg;
+    private boolean imgSet = false;
+    private String image = "";
+    private boolean DELETE_FILE = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //if(DELETE_FILE)
+          //  deleteFile();
+
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        drawerFragment = (FragmentDrawer)
-                getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+        drawerFragment = (FragmentDrawer) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
+
+        //if(loadImage())
+          //  getProfilePic(this.getIntent());
     }
 
     @Override
@@ -184,18 +201,26 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         }
 
         cursor.moveToFirst();
-        return cursor.getInt(0);
+        int orientation = cursor.getInt(0);
+        cursor.close();
+        return orientation;
     }
     //==========================================================================================================================
     //==========================================================================================================================
 
     public void getProfilePic(Intent data) {
-        Uri selectedImg = data.getData();
+        //if(!loadImage())
+            selectedImg = data.getData();
+        //else
+          //  selectedImg = Uri.parse(image);
 
         String[] filePath = {MediaStore.Images.Media.DATA};
 
         Cursor cursor = getContentResolver().query(selectedImg, filePath, null, null, null);
         cursor.moveToFirst();
+
+        //if(!(selectedImg.toString().equals(image)))
+          //  saveImage(selectedImg);
 
         int colIndex = cursor.getColumnIndex(filePath[0]);
         String picPath = cursor.getString(colIndex);
@@ -208,5 +233,49 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         } catch (IOException e) {
             //empty
         }
+
+        cursor.close();
     }
+
+    /*public void saveImage(Uri image) {
+        try {
+            FileOutputStream out = openFileOutput("profilePic.txt", MODE_PRIVATE);
+            OutputStreamWriter writer = new OutputStreamWriter(out);
+            writer.write(image.toString());
+            writer.close();
+
+            Toast.makeText(this, "Pic saved", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean loadImage() {
+        try {
+            FileInputStream in = openFileInput("profilePic.txt");
+            InputStreamReader reader = new InputStreamReader(in);
+
+            char[] buffer = new char[50];
+            image = "";
+            int charRead;
+
+            while((charRead = reader.read(buffer)) > 0) {
+                String readString = String.copyValueOf(buffer, 0, charRead);
+                image += readString;
+            }
+
+            in.close();
+            Toast.makeText(this, image, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return true;
+    }
+
+    public void deleteFile() {
+        File dir = getFilesDir();
+        File file = new File(dir, "profilePic.txt");
+        boolean deleted = file.delete();
+    }*/
 }

@@ -153,6 +153,7 @@ public class AddFoodFragment extends Fragment {
             }
         }
 
+        cursor.close();
         return false;
     }
 
@@ -239,6 +240,7 @@ public class AddFoodFragment extends Fragment {
         values.put(dbConstants.myConstants.PRICE, glPrice);
         db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
         getTotal(db);
+        cursor.close();
     }
 
     protected static void getTotal(SQLiteDatabase db) {
@@ -247,5 +249,7 @@ public class AddFoodFragment extends Fragment {
         String totalCost = "$" + twoDecimals.format(total.getFloat(0));
         TextView textView = (TextView) rootView.findViewById(R.id.totalCost);
         textView.setText(totalCost);
+
+        total.close();
     }
 }

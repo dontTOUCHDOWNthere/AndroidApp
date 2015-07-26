@@ -1,6 +1,7 @@
 package activity;
 
 import android.annotation.TargetApi;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,17 +12,16 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
 import com.example.rh035578.shoppinglist.R;
 import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
 import com.wdullaer.swipeactionadapter.SwipeDirections;
-
 
 /**
  * Created by rh035578 on 7/16/15.
  */
 public class MyListActivity extends ListActivity implements SwipeActionAdapter.SwipeActionListener{
 
-    private Cursor cursor;
     protected SwipeActionAdapter swipeAdapter;
     private SQLiteDatabase dbRead;
 
@@ -30,7 +30,7 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        cursor = readDB();
+        Cursor cursor = readDB();
 
         String[] columns = {dbConstants.myConstants.FOOD, dbConstants.myConstants.PRICE};
         int[] to = {R.id.foodName, R.id.foodPrice};
@@ -69,14 +69,7 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
                 dbConstants.myConstants.FOOD,
                 dbConstants.myConstants.PRICE};
 
-        String selection = null;
-        String[] selectionArgs = null;
-        String groupBy = null;
-        String having = null;
-        String order = null;
-
-        Cursor cursor = dbRead.query(dbConstants.myConstants.GROCERY_LIST, projection, selection, selectionArgs, groupBy, having, order);
-        return cursor;
+        return dbRead.query(dbConstants.myConstants.GROCERY_LIST, projection, null, null, null, null, null);
 
     }
 
@@ -101,17 +94,16 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
             int position = positionList[i];
 
             Cursor deleteCursor = (Cursor) swipeAdapter.getItem(position);
-            long deleteID = -1;
-            if(deleteCursor.moveToFirst())
-                deleteID = deleteCursor.getLong(deleteCursor.getColumnIndex(dbConstants.myConstants.ID));
+            long deleteID;
+            deleteID = deleteCursor.getLong(deleteCursor.getColumnIndex(dbConstants.myConstants.ID));
             Toast.makeText(this, "Food Deleted From List", Toast.LENGTH_SHORT).show();
-
-            if(deleteID >= 0)
-                deleteFood(deleteID);
+            deleteFood(deleteID);
 
             swipeAdapter.notifyDataSetChanged();
         }
     }
+
+
 
     public void deleteFood(long id) {
 
