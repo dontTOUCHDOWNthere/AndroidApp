@@ -34,7 +34,7 @@ public class AddFoodFragment extends Fragment {
     private final String RESET_GL = "delete from "+ dbConstants.myConstants.GROCERY_LIST;
     private final String RESET_MAIN = "delete from "+ dbConstants.myConstants.TABLE;
     private static final String GET_TOTAL = "select sum(" + dbConstants.myConstants.PRICE + ") from " + dbConstants.myConstants.GROCERY_LIST;
-    private static DecimalFormat twoDecimals = new DecimalFormat("#.00");
+    private static DecimalFormat twoDecimals = new DecimalFormat("#0.00");
 
     public AddFoodFragment() {
         //Required empty public constructor
@@ -115,7 +115,7 @@ public class AddFoodFragment extends Fragment {
 
         //get the text of the inputted food
         EditText editFood = (EditText) v.findViewById(R.id.add_food);
-        String food = editFood.getText().toString();
+        String food = editFood.getText().toString().toLowerCase().replace(" ", "");
 
         //get quantity value from spinner
         Spinner quantitySpinner = (Spinner) rootView.findViewById(R.id.quantitySpinner);
@@ -153,7 +153,6 @@ public class AddFoodFragment extends Fragment {
             }
         }
 
-        cursor.close();
         return false;
     }
 
@@ -230,16 +229,40 @@ public class AddFoodFragment extends Fragment {
 
     private void addToGroceryList(String quantity, SQLiteDatabase db, Cursor cursor, ContentValues values) {
         String price = "";
+        String listPrice;
+        String food = "";
+        Float floatPrice;
+        String glPrice;
+
         if(cursor.moveToFirst()) {
             price = cursor.getString(cursor.getColumnIndex(dbConstants.myConstants.PRICE));
+            food = cursor.getString(cursor.getColumnIndex(dbConstants.myConstants.FOOD));
         }
 
-        Float floatPrice = Float.parseFloat(price) * Float.parseFloat(quantity);
-        String glPrice = twoDecimals.format(floatPrice).toString();
+        String[] selection = new String[]{food};
+        String selectStatement = "SELECT " + dbConstants.myConstants.FOOD + ", " + dbConstants.myConstants.PRICE +  " from " + dbConstants.myConstants.GROCERY_LIST + " WHERE " + dbConstants.myConstants.FOOD + "=?";
+        Cursor listCursor = db.rawQuery(selectStatement, selection);
 
-        values.put(dbConstants.myConstants.PRICE, glPrice);
-        db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
+        if(listCursor.moveToFirst()) {
+            listPrice = listCursor.getString(cursor.getColumnIndex(dbConstants.myConstants.PRICE));
+            glPrice = twoDecimals.format((Float.parseFloat(price) * Float.parseFloat(quantity)) + Float.parseFloat(listPrice));
+
+            String updateQuery = "UPDATE " + dbConstants.myConstants.GROCERY_LIST + " SET " + dbConstants.myConstants.PRICE + " = \'" + glPrice + "\' WHERE " + dbConstants.myConstants.FOOD + " = \'" + food + "\'";
+            db.execSQL(updateQuery);
+        }
+
+        else {
+            floatPrice = Float.parseFloat(price) * Float.parseFloat(quantity);
+            glPrice = twoDecimals.format(floatPrice);
+
+
+            values.put(dbConstants.myConstants.PRICE, glPrice);
+            db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
+        }
+
         getTotal(db);
+
+        listCursor.close();
         cursor.close();
     }
 
