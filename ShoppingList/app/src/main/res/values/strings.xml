@@ -16,10 +16,12 @@
     <string name="food">Food:</string>
     <string name="price">Price:</string>
     <string name="addProfilePic">Add Profile Picture</string>
+    <string name="findStore">Find Nearby Store</string>
 
     <string-array name="nav_drawer_labels">
         <item>@string/Home</item>
         <item>@string/addFood</item>
+        <item>@string/findStore</item>
     </string-array>
 
     <string name="drawer_open">Open</string>

@@ -19,18 +19,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.example.rh035578.shoppinglist.R;
+import com.google.android.gms.maps.MapFragment;
+
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 
 
 public class MainActivity extends ActionBarActivity implements FragmentDrawer.FragmentDrawerListener {
@@ -104,6 +98,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
     private void displayView(int position) {
         Fragment fragment = null;
+
         String title = getString(R.string.app_name);
 
         switch(position) {
@@ -114,6 +109,12 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             case 1:
                 fragment = new AddFoodFragment();
                 title = getString(R.string.addFood);
+                break;
+            case 2:
+                Intent intent = new Intent(this, FindStoreActivity.class);
+                startActivity(intent);
+                fragment = null;
+                //title = getString(R.string.findStore);
             default:
                 break;
         }
