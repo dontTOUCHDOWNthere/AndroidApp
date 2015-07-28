@@ -22,5 +22,14 @@ Making an app that will let you add item food names and prices. It will save tha
         * :white_check_mark: deletion of an individual item
 
 
+2. add profile picture capability
+   * :white_check_mark: upload picture from gallery
+   * :bulb: save picture
+
+3. use Google Maps API to show nearby grocery store
+   * :white_check_mark: get current location
+   * :bulb: find nearby grocery stores
+
+
 # Demo
 * coming soon
