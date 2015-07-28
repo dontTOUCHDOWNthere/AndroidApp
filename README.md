@@ -30,6 +30,5 @@ Making an app that will let you add item food names and prices. It will save tha
    * :white_check_mark: get current location
    * :bulb: find nearby grocery stores
 
-
 # Demo
 * coming soon
