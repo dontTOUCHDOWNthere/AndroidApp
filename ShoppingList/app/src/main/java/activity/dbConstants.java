@@ -12,9 +12,10 @@ public class dbConstants {
         public static final String NAME = "practiceDB";
         public static final String TABLE = "practiceTable1";
         public static final String GROCERY_LIST = "groceryList";
-        public static final int VERSION = 2;
+        public static final int VERSION = 3;
         public static final String ID = "_id";
         public static final String FOOD = "food";
         public static final String PRICE = "price";
+        public static final String QUANTITY = "quantity";
     }
 }

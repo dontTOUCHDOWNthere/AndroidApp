@@ -32,8 +32,8 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
         super.onCreate(savedInstanceState);
         Cursor cursor = readDB();
 
-        String[] columns = {dbConstants.myConstants.FOOD, dbConstants.myConstants.PRICE};
-        int[] to = {R.id.foodName, R.id.foodPrice};
+        String[] columns = {dbConstants.myConstants.FOOD, dbConstants.myConstants.PRICE, dbConstants.myConstants.QUANTITY};
+        int[] to = {R.id.foodName, R.id.foodPrice, R.id.foodQuantity};
         SimpleCursorAdapter listAdapter = new SimpleCursorAdapter(this, R.layout.food_info, cursor, columns, to, 0);
 
         swipeAdapter = new SwipeActionAdapter(listAdapter);
@@ -67,7 +67,8 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
 
         String[] projection = {dbConstants.myConstants.ID,
                 dbConstants.myConstants.FOOD,
-                dbConstants.myConstants.PRICE};
+                dbConstants.myConstants.PRICE,
+                dbConstants.myConstants.QUANTITY};
 
         return dbRead.query(dbConstants.myConstants.GROCERY_LIST, projection, null, null, null, null, null);
 

@@ -32,6 +32,18 @@
         android:paddingRight="10dp"/>
 
     <TextView
+        android:id="@+id/foodQuantityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/foodNameTitle"
+        android:layout_below="@+id/foodPriceTitle"
+        android:text="@string/quantity"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold"
+        android:textColor="@color/textSecondaryColor"
+        android:paddingRight="10dp"/>
+
+    <TextView
         android:id="@+id/foodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,6 +59,15 @@
         android:layout_alignBaseline="@+id/foodPriceTitle"
         android:layout_alignBottom="@+id/foodPriceTitle"
         android:layout_toRightOf="@+id/foodPriceTitle"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/foodQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/foodQuantityTitle"
+        android:layout_alignBottom="@+id/foodQuantityTitle"
+        android:layout_toRightOf="@+id/foodQuantityTitle"
         android:text="TextView" />
 
 </RelativeLayout>

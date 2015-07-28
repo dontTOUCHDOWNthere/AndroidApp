@@ -23,6 +23,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.rh035578.shoppinglist.R;
+
+import org.w3c.dom.Text;
+
 import java.text.DecimalFormat;
 
 
@@ -184,6 +187,8 @@ public class AddFoodFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 glValues.put(dbConstants.myConstants.PRICE, getPrice.getText().toString().replaceAll("\\$", ""));
+                glValues.put(dbConstants.myConstants.QUANTITY, quantity);
+
                 values.put(dbConstants.myConstants.PRICE, dividePriceByQuantity(getPrice, quantity));
 
                 db.insert(dbConstants.myConstants.TABLE, null, values);
@@ -231,32 +236,43 @@ public class AddFoodFragment extends Fragment {
         String price = "";
         String listPrice;
         String food = "";
+        String currentQuantity = "";
         Float floatPrice;
         String glPrice;
 
+        //get the price and food name from the grocery list
         if(cursor.moveToFirst()) {
             price = cursor.getString(cursor.getColumnIndex(dbConstants.myConstants.PRICE));
             food = cursor.getString(cursor.getColumnIndex(dbConstants.myConstants.FOOD));
         }
-
+        
+        //check to see if the food already exist in the list and add price to the existing item in the list
         String[] selection = new String[]{food};
-        String selectStatement = "SELECT " + dbConstants.myConstants.FOOD + ", " + dbConstants.myConstants.PRICE +  " from " + dbConstants.myConstants.GROCERY_LIST + " WHERE " + dbConstants.myConstants.FOOD + "=?";
+        String selectStatement = "SELECT " + dbConstants.myConstants.FOOD + ", " + dbConstants.myConstants.PRICE + ", " + dbConstants.myConstants.QUANTITY +  " from " + dbConstants.myConstants.GROCERY_LIST + " WHERE " + dbConstants.myConstants.FOOD + "=?";
         Cursor listCursor = db.rawQuery(selectStatement, selection);
 
         if(listCursor.moveToFirst()) {
+
+            //get the new price for food item
             listPrice = listCursor.getString(cursor.getColumnIndex(dbConstants.myConstants.PRICE));
             glPrice = twoDecimals.format((Float.parseFloat(price) * Float.parseFloat(quantity)) + Float.parseFloat(listPrice));
 
-            String updateQuery = "UPDATE " + dbConstants.myConstants.GROCERY_LIST + " SET " + dbConstants.myConstants.PRICE + " = \'" + glPrice + "\' WHERE " + dbConstants.myConstants.FOOD + " = \'" + food + "\'";
+            //get the quantity already listed on the grocery list
+            currentQuantity = listCursor.getString(listCursor.getColumnIndex(dbConstants.myConstants.QUANTITY));
+            currentQuantity = String.valueOf(Integer.parseInt(quantity) + Integer.parseInt(currentQuantity));
+
+            //update grocery list table with new calculated price and quantity
+            String updateQuery = "UPDATE " + dbConstants.myConstants.GROCERY_LIST + " SET " + dbConstants.myConstants.PRICE + " = \'" + glPrice + "\'," + dbConstants.myConstants.QUANTITY + " = \'" + currentQuantity + "\'" + " WHERE " + dbConstants.myConstants.FOOD + " = \'" + food + "\'";
             db.execSQL(updateQuery);
         }
 
+        //add food that is new to the grocery list
         else {
             floatPrice = Float.parseFloat(price) * Float.parseFloat(quantity);
             glPrice = twoDecimals.format(floatPrice);
 
-
             values.put(dbConstants.myConstants.PRICE, glPrice);
+            values.put(dbConstants.myConstants.QUANTITY, quantity);
             db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
         }
 

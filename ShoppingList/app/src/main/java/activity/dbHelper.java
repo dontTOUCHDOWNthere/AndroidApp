@@ -21,6 +21,7 @@ public class dbHelper extends SQLiteOpenHelper {
             dbConstants.myConstants.ID +
             " integer primary key autoincrement, " +
             dbConstants.myConstants.FOOD + " text not null, " +
+            dbConstants.myConstants.QUANTITY + " text not null, " +
             dbConstants.myConstants.PRICE + " text not null);";
 
     public dbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
