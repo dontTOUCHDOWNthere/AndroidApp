@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
@@ -21,17 +22,31 @@
         android:orientation="horizontal" >
 
         <TableLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top|center"
             android:layout_weight="1">
             <TableRow>
-                <EditText android:id="@+id/add_food"
+                <LinearLayout
+                    android:layout_weight="1">
+                <EditText
+                    android:background="@drawable/add_food_text_shape"
+                    android:id="@+id/add_food"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dip"
                     android:layout_weight="1"
                     android:hint="@string/typeFood" />
+
+                    <Button
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/button_shapes"
+                        android:id="@+id/addButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="@string/addFood" />
+
+                </LinearLayout>
             </TableRow>
             <TableRow>
                 <LinearLayout>
@@ -42,50 +57,57 @@
                         android:textStyle="bold"
                         android:textSize="9pt"
                         android:textColor="@color/textSecondaryColor"
-                        android:paddingRight="25dp" />
+                        android:paddingRight="15dp"
+                        android:layout_marginTop="10dp"/>
                     <Spinner
+                        android:layout_marginTop="10dp"
                         android:id="@+id/quantitySpinner"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="8pt"
-                        android:background="@android:drawable/btn_dropdown" />
+                        android:background="@android:drawable/btn_dropdown"
+                        />
                 </LinearLayout>
             </TableRow>
         </TableLayout>
 
-        <TableLayout
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addField"
+        android:gravity="center">
+
+        <Button
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_shapes"
+            android:id="@+id/seeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|center">
+            android:text="@string/viewFood"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
 
-            <Button
-                android:id="@+id/addButton"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="@string/addFood" />
+        <Button
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_shapes"
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resetDB"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
 
-            <Button
-                android:id="@+id/seeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="@string/viewFood"
-                android:layout_marginTop="10dp"/>
-
-            <Button
-                android:id="@+id/resetButton"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="@string/resetDB"
-                android:layout_marginTop="10dp"/>
-
-            <Button
-                android:id="@+id/resetMainButton"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="@string/resetMainDB"
-                android:layout_marginTop="10dp"/>
-
-        </TableLayout>
+        <Button
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_shapes"
+            android:id="@+id/resetMainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/resetMainDB"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
 
     </LinearLayout>
 

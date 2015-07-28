@@ -9,4 +9,5 @@
     <color name="colorAccent">#000000</color>
     <color name="spinnerColor">#d0d0d0</color>
     <color name="delete">#ee0808</color>
+    <color name="gray">#c7c1c1</color>
 </resources>

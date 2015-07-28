@@ -5,7 +5,7 @@
     <string name="addFood">Add Food</string>
     <string name="viewFood">View Food</string>
     <string name="resetDB">Reset List</string>
-    <string name="resetMainDB">Reset Main DB</string>
+    <string name="resetMainDB">Reset DB</string>
     <string name="createdList">Created List</string>
     <string name="welcome">Welcome to your Shopping List App!</string>
     <string name="lookUpList">MealFit List</string>
