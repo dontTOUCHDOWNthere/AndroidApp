@@ -22,7 +22,7 @@ public class AlternateRowCursorAdapter extends SimpleCursorAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = super.getView(position, convertView, parent);
-        
+
         if(position % 2 == 0) {
             view.setBackgroundColor(colors[0]);
         }
