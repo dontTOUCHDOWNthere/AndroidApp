@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 import com.example.rh035578.shoppinglist.R;
 import com.wdullaer.swipeactionadapter.SwipeActionAdapter;
 import com.wdullaer.swipeactionadapter.SwipeDirections;
+
+import adapter.AlternateRowCursorAdapter;
 
 /**
  * Created by rh035578 on 7/16/15.
@@ -34,7 +37,7 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
 
         String[] columns = {dbConstants.myConstants.FOOD, dbConstants.myConstants.PRICE, dbConstants.myConstants.QUANTITY};
         int[] to = {R.id.foodName, R.id.foodPrice, R.id.foodQuantity};
-        SimpleCursorAdapter listAdapter = new SimpleCursorAdapter(this, R.layout.food_info, cursor, columns, to, 0);
+        AlternateRowCursorAdapter listAdapter = new AlternateRowCursorAdapter(this, R.layout.food_info, cursor, columns, to);
 
         swipeAdapter = new SwipeActionAdapter(listAdapter);
         swipeAdapter.setListView(getListView())
@@ -59,7 +62,6 @@ public class MyListActivity extends ListActivity implements SwipeActionAdapter.S
     protected void onPause() {
         super.onPause();
     }
-
 
     private Cursor readDB() {
         dbHelper helper = new dbHelper(this, dbConstants.myConstants.NAME, null, dbConstants.myConstants.VERSION);
