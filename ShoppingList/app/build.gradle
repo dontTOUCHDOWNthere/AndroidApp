@@ -34,4 +34,5 @@ dependencies {
     compile 'com.wdullaer:swipeactionadapter:1.4.4'
     compile 'com.makeramen:roundedimageview:2.1.1'
     compile 'com.google.android.gms:play-services:7.5.0'
+    compile files('libs/dropbox-sync-sdk-android.jar')
 }

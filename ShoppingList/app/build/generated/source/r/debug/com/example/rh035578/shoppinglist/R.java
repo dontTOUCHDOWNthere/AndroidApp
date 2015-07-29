@@ -2224,7 +2224,6 @@ containing a value of this type.
         public static final int line3=0x7f0e009a;
         public static final int listMode=0x7f0e000b;
         public static final int list_item=0x7f0e0045;
-        public static final int lookUpList=0x7f0e0080;
         public static final int match_parent=0x7f0e0036;
         public static final int media_actions=0x7f0e0094;
         public static final int media_route_control_frame=0x7f0e0088;
@@ -2297,6 +2296,7 @@ containing a value of this type.
         public static final int totalCost=0x7f0e007f;
         public static final int up=0x7f0e000a;
         public static final int useLogo=0x7f0e0014;
+        public static final int viewDB=0x7f0e0080;
         public static final int withText=0x7f0e0022;
         public static final int wrap_content=0x7f0e0028;
     }

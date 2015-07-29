@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-2ab7de31f8743fbcf43d4043a95dd53484fdbbde.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-b130981803111ddb9841acf1f0e733b3de681710.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-a2490df8512d1353ef924fd32cf4396f61f4084b.jar" />
-    </item>
-    <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-425ec4a113f7a6274c4b5a374bbb91ed275481a8.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-e5aa1e1d68a1c69f666326e3af724ed16b774b1f.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-b8f549e20c1688cfdd0e1d24763e6870fa8d3797.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-b2276bf928052105232398957e94e51da35f4da3.jar" />
     </item>
     <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.5.0/jars/classes.jar"
@@ -37,11 +37,39 @@
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-44eec6e7da4240b2fd96b50c0eddbddf01aef257.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-1f0e2468b43d16785737df1f33654087645d8392.jar" />
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-518f71464b66035cc00b88c38ea3e6e3343d2a9b.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-15c4bdbb47db0eca42bd01eda987868eb2193f34.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-9ed06042aa26129027541b863233c7b89455f826.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-4388304cb93b28962174a31df1541eb302f924a4.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-bac423634b677c5b29aafc1ebf86248266ca26bf.jar" />
     </item>
     <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-identity/7.5.0/jars/classes.jar"
@@ -51,32 +79,32 @@
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-4ae0cd4b7c179057bad71ba75970adf17787625e.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.1.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-eec922cb9c7f5ee61c2eca33efbe70befb5fc73d.jar" />
+        sha1="2e76a4b693db19fdde80d30123204d0ed2454ea9">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-4e612a36c9a6ee5b94480ad0512cae8cf35291f9.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-280f65b2b1336f539d8c4a48cbae07c1073dc49c.jar" />
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-d3031fdaa2e8ace73dd803ffa009bca516efbf11.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.wdullaer/swipeactionadapter/1.4.4/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-panorama/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="5ce1a428864a5bfe2c134b88d298d9af868b5af5">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-a1a1b48e1a08259b19936d75e0356ebf10704833.jar" />
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-1f0e2468b43d16785737df1f33654087645d8392.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appinvite/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-9ed06042aa26129027541b863233c7b89455f826.jar" />
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-a2490df8512d1353ef924fd32cf4396f61f4084b.jar" />
     </item>
     <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/libs/internal_impl-22.0.0.jar"
@@ -93,53 +121,18 @@
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-52219871f68b9c0e4121b9b6745dbf0fb9b16775.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/7.5.0/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-analytics/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-bac423634b677c5b29aafc1ebf86248266ca26bf.jar" />
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-2ab7de31f8743fbcf43d4043a95dd53484fdbbde.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-cast/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-836bf7e2a49e79fc4bbd3c037439e5ca3537aeab.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-5984556cab23176831f11cb8b4b639d4ce1a10aa.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-4388304cb93b28962174a31df1541eb302f924a4.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-d3031fdaa2e8ace73dd803ffa009bca516efbf11.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-c62b4dd2687a9ce54f1dcf58536ccb8631c701f5.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-b2276bf928052105232398957e94e51da35f4da3.jar" />
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-b130981803111ddb9841acf1f0e733b3de681710.jar" />
     </item>
     <item
         jar="/Users/rh035578/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
@@ -149,18 +142,11 @@
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-fa47abdd57c0db36ecf871221478da0e42cb3d36.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.makeramen/roundedimageview/2.1.1/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appstate/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="2e76a4b693db19fdde80d30123204d0ed2454ea9">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-4e612a36c9a6ee5b94480ad0512cae8cf35291f9.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-b8f549e20c1688cfdd0e1d24763e6870fa8d3797.jar" />
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-5984556cab23176831f11cb8b4b639d4ce1a10aa.jar" />
     </item>
     <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-plus/7.5.0/jars/classes.jar"
@@ -170,6 +156,27 @@
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-0ae1fca545d0c7e7589be0e5d9a41b7061d01774.jar" />
     </item>
     <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-nearby/7.5.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-eec922cb9c7f5ee61c2eca33efbe70befb5fc73d.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-280f65b2b1336f539d8c4a48cbae07c1073dc49c.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/libs/dropbox-sync-sdk-android.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="45fb26781bc311772660c697996801f8f39d3ce0">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/dropbox-sync-sdk-android-b222a8e3c508db8c83512bce2e5107bf65030333.jar" />
+    </item>
+    <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-games/7.5.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -177,25 +184,11 @@
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-d184c45d59a54ddba4a0ac7840ff03c403fdd01f.jar" />
     </item>
     <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/7.5.0/jars/classes.jar"
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-518f71464b66035cc00b88c38ea3e6e3343d2a9b.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-fitness/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-e5aa1e1d68a1c69f666326e3af724ed16b774b1f.jar" />
-    </item>
-    <item
-        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-safetynet/7.5.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
-        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-15c4bdbb47db0eca42bd01eda987868eb2193f34.jar" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-836bf7e2a49e79fc4bbd3c037439e5ca3537aeab.jar" />
     </item>
     <item
         jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.5.0/jars/classes.jar"
@@ -203,6 +196,20 @@
         revision="22.0.1"
         sha1="a78183f30e769a98ab4820794f597763088d3065">
         <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-bd49162e9fc0acf48bacc04487da7e4c3e5e1c71.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.wdullaer/swipeactionadapter/1.4.4/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5ce1a428864a5bfe2c134b88d298d9af868b5af5">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-a1a1b48e1a08259b19936d75e0356ebf10704833.jar" />
+    </item>
+    <item
+        jar="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/pre-dexed/debug/classes-c62b4dd2687a9ce54f1dcf58536ccb8631c701f5.jar" />
     </item>
 
 </items>
