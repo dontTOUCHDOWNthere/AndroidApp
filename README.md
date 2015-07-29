@@ -30,5 +30,9 @@ Making an app that will let you add item food names and prices. It will save tha
    * :white_check_mark: get current location
    * :bulb: find nearby grocery stores
 
+4. open Dropbox folder to MealFit plan from Home fragment
+   * :white_check_mark: launches Dropbox app when button clicked
+   * :x: view Dropbox folder directly from the ShoppingList app
+
 # Demo
 * coming soon
