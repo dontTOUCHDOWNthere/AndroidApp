@@ -19,7 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import com.example.rh035578.shoppinglist.R;
+import com.getpebble.android.kit.PebbleKit;
 import com.google.android.gms.maps.MapFragment;
 
 import java.io.ByteArrayOutputStream;
@@ -34,9 +37,6 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     private int RESULT_LOAD_IMG;
     private static final int MAX_IMAGE_DIMENSION = 500;
     private Uri selectedImg;
-    private boolean imgSet = false;
-    private String image = "";
-    private boolean DELETE_FILE = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +54,22 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), mToolbar);
         drawerFragment.setDrawerListener(this);
 
-        //if(loadImage())
-          //  getProfilePic(this.getIntent());
+        //send app to "Home" page once opened
+        Fragment fragment;
+        String title = getString(R.string.Home);
+
+        fragment = new HomeFragment();
+
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+
+            // set the toolbar title
+            getSupportActionBar().setTitle(title);
+        }
+
     }
 
     @Override
@@ -72,7 +86,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //load profile picture
         if (id == R.id.action_settings) {
             Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
@@ -96,6 +110,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         displayView(position);
     }
 
+    //========================================
+    //determine which fragment to load
+    //========================================
     private void displayView(int position) {
         Fragment fragment = null;
 
@@ -209,74 +226,17 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
     //==========================================================================================================================
     //==========================================================================================================================
 
+    //====================================
+    // load selected picture from gallery
+    //====================================
     public void getProfilePic(Intent data) {
-        //if(!loadImage())
-            selectedImg = data.getData();
-        //else
-          //  selectedImg = Uri.parse(image);
 
-        String[] filePath = {MediaStore.Images.Media.DATA};
-
-        Cursor cursor = getContentResolver().query(selectedImg, filePath, null, null, null);
-        cursor.moveToFirst();
-
-        //if(!(selectedImg.toString().equals(image)))
-          //  saveImage(selectedImg);
-
-        int colIndex = cursor.getColumnIndex(filePath[0]);
-        String picPath = cursor.getString(colIndex);
-        cursor.close();
-
+        selectedImg = data.getData();
         ImageView profilePic = (ImageView) findViewById(R.id.profilePic);
-        //Bitmap imgBM = BitmapFactory.decodeFile(picPath);
         try {
             profilePic.setImageBitmap(scaleImage(this, selectedImg));
         } catch (IOException e) {
             //empty
         }
-
-        cursor.close();
     }
-
-    /*public void saveImage(Uri image) {
-        try {
-            FileOutputStream out = openFileOutput("profilePic.txt", MODE_PRIVATE);
-            OutputStreamWriter writer = new OutputStreamWriter(out);
-            writer.write(image.toString());
-            writer.close();
-
-            Toast.makeText(this, "Pic saved", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean loadImage() {
-        try {
-            FileInputStream in = openFileInput("profilePic.txt");
-            InputStreamReader reader = new InputStreamReader(in);
-
-            char[] buffer = new char[50];
-            image = "";
-            int charRead;
-
-            while((charRead = reader.read(buffer)) > 0) {
-                String readString = String.copyValueOf(buffer, 0, charRead);
-                image += readString;
-            }
-
-            in.close();
-            Toast.makeText(this, image, Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return true;
-    }
-
-    public void deleteFile() {
-        File dir = getFilesDir();
-        File file = new File(dir, "profilePic.txt");
-        boolean deleted = file.delete();
-    }*/
 }

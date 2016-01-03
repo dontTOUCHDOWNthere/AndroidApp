@@ -25,6 +25,7 @@ android {
 
 repositories {
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/groups/public/"}
 }
 
 dependencies {
@@ -35,4 +36,5 @@ dependencies {
     compile 'com.makeramen:roundedimageview:2.1.1'
     compile 'com.google.android.gms:play-services:7.5.0'
     compile files('libs/dropbox-sync-sdk-android.jar')
+    compile 'com.getpebble:pebblekit:3.0.0'
 }

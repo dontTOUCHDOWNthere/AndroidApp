@@ -40,4 +40,4 @@
         app:layout="@layout/fragment_navigation_drawer"
         tools:layout="@layout/fragment_navigation_drawer" />
 
-</android.support.v4.widget.DrawerLayout><!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/src/main/res/layout/activity_main.xml -->
+</android.support.v4.widget.DrawerLayout><!-- From: file:/Users/rhudgeons/Desktop/ShoppingList/AndroidApp/ShoppingList/app/src/main/res/layout/activity_main.xml -->

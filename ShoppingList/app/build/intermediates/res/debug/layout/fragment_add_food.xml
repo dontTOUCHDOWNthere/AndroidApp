@@ -37,15 +37,6 @@
                     android:padding="10dip"
                     android:layout_weight="1"
                     android:hint="@string/typeFood" />
-
-                    <Button
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/button_shapes"
-                        android:id="@+id/addButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:text="@string/addFood" />
-
                 </LinearLayout>
             </TableRow>
             <TableRow>
@@ -69,6 +60,36 @@
                         />
                 </LinearLayout>
             </TableRow>
+            <TableRow>
+                <LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/category"
+                        android:textStyle="bold"
+                        android:textSize="9pt"
+                        android:textColor="@color/textSecondaryColor"
+                        android:paddingRight="15dp"
+                        android:layout_marginTop="10dp"/>
+                    <Spinner
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/categorySpinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="8pt"
+                        android:background="@android:drawable/btn_dropdown"
+                        />
+                </LinearLayout>
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/button_shapes"
+                    android:id="@+id/addButton"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:text="@string/addFood" />
+            </TableRow>
         </TableLayout>
 
     </LinearLayout>
@@ -77,6 +98,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addField"
+        android:layout_marginTop="15dip"
         android:gravity="center">
 
         <Button
@@ -137,4 +159,4 @@
     </LinearLayout>
 
 </RelativeLayout>
-<!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/src/main/res/layout/fragment_add_food.xml -->
+<!-- From: file:/Users/rhudgeons/Desktop/ShoppingList/AndroidApp/ShoppingList/app/src/main/res/layout/fragment_add_food.xml -->

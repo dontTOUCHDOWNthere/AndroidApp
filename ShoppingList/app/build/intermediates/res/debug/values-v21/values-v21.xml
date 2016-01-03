@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v21/values-v21.xml -->
+    <!-- From: file:/Users/rhudgeons/Desktop/ShoppingList/AndroidApp/ShoppingList/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/res/values-v21/values-v21.xml -->
     <eat-comment/>
     <style name="Base.TextAppearance.AppCompat" parent="android:TextAppearance.Material"/>
     <style name="Base.TextAppearance.AppCompat.Body1" parent="android:TextAppearance.Material.Body1"/>
@@ -254,7 +254,7 @@
         <item name="android:colorControlHighlight">?attr/colorControlHighlight</item>
         <item name="android:colorButtonNormal">?attr/colorButtonNormal</item>
     </style>
-    <!-- From: file:/Users/rh035578/FirstAndroidApp/ShoppingList/app/src/main/res/values-v21/styles.xml -->
+    <!-- From: file:/Users/rhudgeons/Desktop/ShoppingList/AndroidApp/ShoppingList/app/src/main/res/values-v21/styles.xml -->
     <eat-comment/>
     <style name="SLTheme" parent="SLTheme.Base">
         <item name="android:windowContentTransitions">true</item>

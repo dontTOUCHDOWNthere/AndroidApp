@@ -23,10 +23,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.rh035578.shoppinglist.R;
+import com.getpebble.android.kit.Constants;
+import com.getpebble.android.kit.PebbleKit;
+import com.getpebble.android.kit.util.PebbleDictionary;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 
 public class AddFoodFragment extends Fragment {
@@ -34,10 +42,13 @@ public class AddFoodFragment extends Fragment {
     //save so I can pass into clickListener for adding
     protected static View rootView;
     private final String[] items = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"};
+    private final String[] categories = new String[]{"Produce", "Beef", "Poultry", "Pork", "Other"};
     private final String RESET_GL = "delete from "+ dbConstants.myConstants.GROCERY_LIST;
     private final String RESET_MAIN = "delete from "+ dbConstants.myConstants.TABLE;
     private static final String GET_TOTAL = "select sum(" + dbConstants.myConstants.PRICE + ") from " + dbConstants.myConstants.GROCERY_LIST;
     private static DecimalFormat twoDecimals = new DecimalFormat("#0.00");
+    private final static UUID PEBBLE_APP_UUID = UUID.fromString("EC7EE5C6-8DDF-4089-AA84-C3396A11CC95");
+
 
     public AddFoodFragment() {
         //Required empty public constructor
@@ -62,9 +73,13 @@ public class AddFoodFragment extends Fragment {
             }
         });
 
-        Spinner dropdown = (Spinner) rootView.findViewById(R.id.quantitySpinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
-        dropdown.setAdapter(adapter);
+        Spinner quantityDropdown = (Spinner) rootView.findViewById(R.id.quantitySpinner);
+        ArrayAdapter<String> quantityAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
+        quantityDropdown.setAdapter(quantityAdapter);
+
+        Spinner categoryDropdown = (Spinner) rootView.findViewById(R.id.categorySpinner);
+        ArrayAdapter<String> categoryAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, categories);
+        categoryDropdown.setAdapter(categoryAdapter);
 
         //see what foods the user has saved in db
         Button seeButton = (Button) rootView.findViewById(R.id.seeButton);
@@ -274,6 +289,7 @@ public class AddFoodFragment extends Fragment {
             values.put(dbConstants.myConstants.PRICE, glPrice);
             values.put(dbConstants.myConstants.QUANTITY, quantity);
             db.insert(dbConstants.myConstants.GROCERY_LIST, null, values);
+
         }
 
         getTotal(db);
@@ -291,4 +307,5 @@ public class AddFoodFragment extends Fragment {
 
         total.close();
     }
+
 }
